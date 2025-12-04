@@ -18,17 +18,17 @@
 }
  
 html {
+  overflow-x: hidden;
   box-sizing: border-box;
   font-size: 62.5%; 
 }
 
 body {
-  background: linear-gradient(90deg, #5c0808, #2b1383, #2f014b);
+  background: linear-gradient(90deg, #5c0808, #2b1383, #2f014b) fixed;
   margin: 50px;
   font-family: "Nunito", sans-serif;
   font-weight: 300;
   line-height: 1.6; 
-  overflow-x: hidden;
 }
 h1
 {
@@ -254,6 +254,7 @@ h1
 /* Маленькие мобильные устройства (до 575px) */
 @media (max-width: 575px) {
     body {
+        overflow-x: hidden;
         margin: 10px;
     }
     .draw-btn
