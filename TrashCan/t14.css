@@ -1,0 +1,215 @@
+body {
+    background: linear-gradient(60deg, #5c0808, #2b1383, #2f014b);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.section1{
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    width: 50%;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.section2
+{
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    width: 70%;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+h1, h2 {
+    color: #ffffff;
+}
+
+/* Стили для задачи 1 */
+#contents {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+/* Стили для задачи 3 */
+#fileList {
+    list-style: none;
+    padding: 0;
+    max-width: 400px;
+}
+
+#fileList li {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 4px;
+}
+
+#fileList li.selected {
+    background-color: #e3f2fd;
+    border-color: #2196F3;
+}
+
+/* Стили для задачи 4 */
+#slider {
+    width: 300px;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    position: relative;
+    margin: 20px 0;
+}
+
+#sliderDot {
+    width: 20px;
+    height: 20px;
+    background: #4CAF50;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    left: 0;
+    cursor: pointer;
+}
+
+#sliderValue {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+/* Стили для задачи 6 */
+#animationArea {
+    height: 200px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.animated-element {
+    width: 50px;
+    height: 50px;
+    background: #FF5722;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.bounce {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+button {
+    padding: 8px 15px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+
+
+
+
+.gallery {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.main-image-container {
+    background: rgb(0, 0, 0);
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.main-image:hover {
+    transform: scale(1.02);
+}
+
+.thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.thumbnail {
+    width: 120px;
+    height: 80px;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.thumbnail:hover {
+    opacity: 1;
+    transform: translateY(-5px);
+}
+
+.thumbnail.active {
+    opacity: 1;
+    border-color: #3498db;
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-info {
+    text-align: center;
+    margin-top: 15px;
+    color: #7f8c8d;
+    font-style: italic;
+}
+    @media (max-width: 768px) {
+    .main-image-container {
+        height: 300px;
+    }
+    
+    .thumbnail {
+        width: 100px;
+        height: 70px;
+    }
+}

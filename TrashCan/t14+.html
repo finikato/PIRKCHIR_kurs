@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерактивная галерея изображений</title>
+    <link rel="stylesheet" href="/pract 1/css/t14.css">
+</head>
+<body>
+<section class="section1">
+    <div class="container" c>
+        <h1>Галерея изображений</h1>
+        <div class="gallery">
+            <div class="main-image-container">
+                <img id="main-image" class="main-image" src="https://img.youscreen.ru/wall/14977271486664/14977271486664_1920x1200.jpg" alt="Основное изображение">
+            </div>
+            
+            <div class="image-info" id="image-info">Пушистик 1</div>
+            
+            <div class="thumbnails">
+                <div class="thumbnail active" data-image="https://img.youscreen.ru/wall/14977271486664/14977271486664_1920x1200.jpg" data-title="пушистик 1">
+                    <img src="https://img.youscreen.ru/wall/14977271486664/14977271486664_1920x1200.jpg" alt = "пушистик 1">
+                </div>
+                <div class="thumbnail" data-image="https://avatars.mds.yandex.net/i?id=3ac75b2c782afbbd7682a7e6bf37001a_l-8391913-images-thumbs&n=13" data-title="пушистик 2">
+                    <img src="https://avatars.mds.yandex.net/i?id=3ac75b2c782afbbd7682a7e6bf37001a_l-8391913-images-thumbs&n=13" alt="пушистик 2">
+                </div>
+                <div class="thumbnail" data-image="https://avatars.mds.yandex.net/i?id=09be2d1b84af58c0cf821165a1f011a9_l-4452215-images-thumbs&n=13" data-title="Локи...">
+                    <img src="https://avatars.mds.yandex.net/i?id=09be2d1b84af58c0cf821165a1f011a9_l-4452215-images-thumbs&n=13" alt="Локи...">
+                </div>
+                <div class="thumbnail" data-image="https://i.pinimg.com/originals/a9/17/61/a91761425421d5c24e5b6e5862310fa0.jpg" data-title="Толстушка Гас">
+                    <img src="https://i.pinimg.com/originals/a9/17/61/a91761425421d5c24e5b6e5862310fa0.jpg" alt="Толстушка Гас">
+                </div>
+                <div class="thumbnail" data-image="https://i.pinimg.com/originals/fb/87/fe/fb87fe07bc56d0ac807c761044cf28e5.jpg" data-title="магазин Панда">
+                    <img src="https://i.pinimg.com/originals/fb/87/fe/fb87fe07bc56d0ac807c761044cf28e5.jpg" alt="магазин Панда">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section1">
+    <div class="buttons">
+        <button id="smallBtn">Маленькое (100x100)</button>
+        <button id="mediumBtn">Среднее (400x400)</button>
+        <button id="largeBtn">Большое (800x800)</button>
+    </div>
+    
+    <div class="image-container" id="imageContainer">
+        <div class="image-wrapper" id="imageWrapper">
+            <img id="centeredImage" src="/pract 1/images/chel.webp" alt="Изображение">
+        </div>
+    </div>
+    
+    <div class="coordinates">
+        <div id="clickInfo">Координаты появятся здесь после клика</div>
+    </div>
+</section>
+    <script src="/pract 1/js/js.js"></script>
+</body>
+</html>

@@ -1,0 +1,712 @@
+:root {
+    --primary-color: #6a11cb;
+    --secondary-color: #2575fc;
+    --accent-color: #ff4b2b;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --transition: all 0.3s ease;
+    --border-radius: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(#240f75, #200c69, #2f014b);
+    color: var(--light-color);
+    line-height: 1.6;
+    padding: 2rem 1rem;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+h2 {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    margin-top: 3rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: var(--glass-bg);
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--glass-shadow);
+    transition: var(--transition);
+}
+
+section:hover {
+    transform: translateY(-5px); 
+    box-shadow: 
+        0 12px 25px rgba(0, 0, 0, 0.2),
+        0 0 30px rgba(106, 17, 203, 0.1); 
+}
+
+/* Задание 1: Карточки в стиле glassmorphism */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.glass-card {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    height: 250px;
+    background: var(--glass-bg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    transition: var(--transition);
+}
+
+.glass-card:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); 
+}
+
+.glass-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    z-index: 2;
+}
+
+.glass-card p {
+    text-align: center;
+    font-size: 0.9rem;
+    z-index: 2;
+}
+
+/* Градиентный фон с анимацией */
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.1), 
+        transparent,
+        rgba(106, 17, 203, 0.2),
+        transparent,
+        rgba(37, 117, 252, 0.2),
+        transparent
+    );
+    transform: rotate(45deg);
+    transition: var(--transition);
+    z-index: -1;
+    opacity: 0;
+}
+
+.glass-card:hover::before {
+    opacity: 1;
+    animation: gradientMove 3s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    50% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+}
+
+/* Большой квадрат сзади */
+.glass-card::after {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 20px;
+    top: -60px;
+    right: -60px;
+    transition: var(--transition);
+    z-index: -1;
+    filter: blur(8px);
+}
+
+.glass-card:hover::after {
+    animation: bigSquareMove 4s ease-in-out infinite;
+}
+
+@keyframes bigSquareMove {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        background: #b21f1f;
+    }
+    25% {
+        transform: translate(-100px, 100px) rotate(90deg);
+        background: #ffffff;
+    }
+    50% {
+        transform: translate(-500px, 0) rotate(180deg);
+        background: #ce5d06;
+    }
+    75% {
+        transform: translate(-100px, -100px) rotate(270deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+/* Малый квадрат 1 */
+.small-square-1 {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: var(--accent-color);
+    border-radius: 8px;
+    top: 20px;
+    left: 20px;
+    transition: var(--transition);
+    opacity: 0.3;
+    filter: blur(8px);
+    z-index: 1;
+}
+
+.glass-card:hover .small-square-1 {
+    animation: smallSquare1Move 3s ease-in-out infinite;
+}
+
+@keyframes smallSquare1Move {
+    0%, 100% {
+        transform: translate(0, 0);
+        background: var(--accent-color);
+    }
+    25% {
+        transform: translate(calc(100% + 150px), 0);
+        background: var(--secondary-color);
+    }
+    50% {
+        transform: translate(calc(100% + 150px), calc(100% + 120px));
+        background: var(--primary-color);
+    }
+    75% {
+        transform: translate(0, calc(100% + 120px));
+        background: #ffd700;
+    }
+}
+
+/* Задание 2: Кнопки социальных сетей */
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.social-btn {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--light-color);
+    font-size: 1.5rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+/* Градиент заполняет всю кнопку сверху вниз */
+.social-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    transition: var(--transition);
+    z-index: -1;
+}
+
+.social-btn:hover::before {
+    height: 100%;
+}
+
+.social-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Задание 3: Форма регистрации */
+.registration-form {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 2.5rem;
+        background: var(--glass-bg);
+        border-radius: var(--border-radius);
+        border: 1px solid var(--glass-border);
+        box-shadow: var(--glass-shadow);
+        position: relative;
+        overflow: hidden;
+        transition: var(--transition);
+        display: grid;
+        gap: 1.5rem;
+        grid-template-areas: 
+            "title"
+            "name" 
+            "email"
+            "password"
+            "submit";
+    }
+
+    .registration-form:hover {
+        transform: translateY(-8px);
+        box-shadow: 
+            0 15px 35px rgba(0, 0, 0, 0.3),
+            0 0 50px rgba(106, 17, 203, 0.2);
+    }
+
+    .form-title {
+        grid-area: title;
+        text-align: center;
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+    }
+
+    .form-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        border-radius: 2px;
+        transition: var(--transition);
+    }
+
+    .registration-form:hover .form-title::after {
+        width: 150px;
+    }
+
+    .form-group {
+        position: relative;
+        z-index: 1;
+        transition: var(--transition);
+    }
+
+    .form-group:nth-child(2) {
+        grid-area: name;
+    }
+
+    .form-group:nth-child(3) {
+        grid-area: email;
+    }
+
+    .form-group:nth-child(4) {
+        grid-area: password;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        transition: var(--transition);
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 1rem 1.2rem;
+        border: none;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--glass-border);
+        color: var(--light-color);
+        font-size: 1rem;
+        transition: var(--transition);
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group input::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .form-group input:focus {
+        outline: none;
+        background: rgba(255, 255, 255, 0.15);
+        box-shadow: 
+            0 0 0 2px rgba(255, 255, 255, 0.3),
+            inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        transform: translateY(-3px);
+        border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .form-group:focus-within label {
+        transform: translateY(-5px);
+        color: rgba(255, 255, 255, 0.9);
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    }
+
+    .submit-btn {
+        grid-area: submit;
+        width: 100%;
+        padding: 1.2rem;
+        background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        border: none;
+        border-radius: 10px;
+        color: var(--light-color);
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .submit-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: var(--transition);
+    }
+
+    .submit-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .submit-btn:hover::before {
+        left: 100%;
+    }
+
+    .submit-btn:active {
+        transform: translateY(-2px);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Анимация для декоративных элементов формы */
+    .registration-form::before {
+        content: '';
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background: var(--primary-color);
+        border-radius: 8px;
+        top: 20px;
+        left: 20px;
+        transition: var(--transition);
+        z-index: 0;
+        opacity: 0.3;
+    }
+
+    .registration-form::after {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background: var(--secondary-color);
+        border-radius: 6px;
+        bottom: 30px;
+        right: 30px;
+        transition: var(--transition);
+        z-index: 0;
+        opacity: 0.3;
+    }
+
+    .registration-form:hover::before,
+    .registration-form:hover::after {
+        background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+        opacity: 0.5;
+    }
+
+    .registration-form:hover::before {
+        animation: randomMove 6s ease-in-out infinite;
+    }
+
+    .registration-form:hover::after {
+        animation: randomMove 8s ease-in-out infinite reverse;
+    }
+
+
+@keyframes randomMove {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(calc(100% + 20px), calc(50% + 10px));
+    }
+    50% {
+        transform: translate(calc(50% + 10px), calc(100% + 20px));
+    }
+    75% {
+        transform: translate(calc(100% + 20px), calc(100% + 20px));
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Задание 4: Карточки с flexbox */
+.flex-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.flex-card {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    background: var(--glass-bg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+    filter: grayscale(0.3);
+    transition: var(--transition); 
+}
+
+.flex-card:hover {
+    transform: translateY(-10px); 
+    filter: grayscale(0); 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); 
+}
+
+.flex-card-img {
+    width: 100%;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    transition: var(--transition);
+}
+
+.flex-card:hover .flex-card-img {
+    transform: scale(1.05);
+}
+
+.flex-card-content {
+    padding: 1.5rem;
+}
+
+.flex-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.flex-card p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.flex-card .btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    border-radius: 5px;
+    color: var(--light-color);
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.flex-card .btn:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); 
+}
+
+/* Задание 5: Карточки с анимированными границами */
+.border-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.border-card {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    background: var(--glass-bg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+    padding: 2rem;
+    transition: var(--transition);
+    filter: brightness(0.8);
+    z-index: 1;
+}
+
+/* Анимация границ - лучи протекают только по грани прямоугольника */
+.border-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        var(--primary-color),
+        var(--secondary-color),
+        var(--accent-color),
+        transparent
+    );
+    background-size: 200% 100%;
+    border-radius: var(--border-radius);
+    animation: borderFlow 2s linear infinite paused;
+    opacity: 0;
+    transition: var(--transition);
+    z-index: -1;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    padding: 2px;
+}
+
+.border-card:hover::before {
+    opacity: 1;
+    animation-play-state: running;
+}
+
+@keyframes borderFlow {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.border-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    filter: brightness(1.2);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 60px rgba(106, 17, 203, 0.3);
+}
+
+.border-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    position: relative;
+    z-index: 2;
+}
+
+.border-card p {
+    font-size: 0.95rem;
+    position: relative;
+    z-index: 2;
+    line-height: 1.5;
+}
+
+/* Адаптивность для задания 5 */
+@media (max-width: 768px) {
+    .border-cards {
+        gap: 1.5rem;
+    }
+    
+    .border-card {
+        max-width: 100%;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .border-card {
+        padding: 1.2rem;
+    }
+    
+    .border-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .border-card p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+    
+    section {
+        padding: 1.5rem;
+    }
+    
+    .cards-container, 
+    .flex-cards, 
+    .border-cards {
+        gap: 1.5rem;
+    }
+    
+    .glass-card,
+    .flex-card,
+    .border-card {
+        max-width: 100%;
+    }
+    
+    .social-buttons {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .registration-form {
+        padding: 1.5rem;
+    }
+    
+    .social-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}

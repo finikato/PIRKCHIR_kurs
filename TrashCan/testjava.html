@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tori</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="java1.css">
+</head>
+<body>
+    <main>
+    <h1>Практ 9</h1>
+    
+    <!-- Задание 1: Регистрация -->
+    <section>
+        <div class="container">
+            <h2>Регистрация на сайте</h2>
+            <p class="description">Нажмите кнопку ниже, чтобы увидеть приглашение к регистрации.
+                 Если вы ответите "Да", появится сообщение "Круто!",
+                  в противном случае - "Попробуй ещё раз".</p>
+            <div class="cards-container">
+                <div class="glass-card">
+                    <div class="small-square-1"></div>
+                    <h3>1</h3>
+                    <p>------------------------------------------------------------------------------------------------</p>
+                    <button id="registrationBtn">Пройти регистрацию</button>
+                </div>
+            </div>
+            <div id="registrationResult" class="result"></div>
+        </div>
+    </section>
+
+    <!-- Задание 2: Авторизация -->
+    <section>
+        <div class="container">
+            <h2>Авторизация</h2>
+            <p class="description">Нажмите кнопку ниже, чтобы проверить систему входа.
+                 Используйте логин "Админ" и пароль "Я главный" для успешного входа.</p>
+            <div class="cards-container">
+                <div class="glass-card">
+                    <div class="small-square-1"></div>
+                    <h3>2</h3>
+                    <p>------------------------------------------------------------------------------------------------</p>
+                    <button id="loginBtn">Войти в систему</button>
+                </div>
+            </div>
+            <div id="loginResult" class="result"></div>
+        </div>
+    </section>
+
+    <!-- Задание 3: Кнопка "Нравится" -->
+    <section>
+        <div class="container">
+            <h2>Кнопка "Нравится"</h2>
+            <p class="description">Нажмите на кнопку "Нравится", чтобы изменить её цвет.
+             При повторном нажатии цвет вернется к исходному.</p>
+            <div class="cards-container">
+                <div class="glass-card">
+                    <div class="small-square-1"></div>
+                    <h3>3</h3>
+                    <p>------------------------------------------------------------------------------------------------</p>
+                    <button id="likeBtn" class="like-btn">♡</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Задание 4: Рисование -->
+    <section>
+        <div class="container">
+            <h2>Рисование</h2>
+            <p class="description">Нажмите кнопку "Начать рисование",
+                 а затем перемещайте курсор по области ниже, чтобы создавать элементы.
+                 Повторное нажатие кнопки остановит рисование.</p>
+            <div class="cards-container">
+                <div class="glass-card">
+                    <div class="small-square-1"></div>
+                    <h3>4</h3>
+                    <p>------------------------------------------------------------------------------------------------</p>
+                    <button id="drawBtn" class="draw-btn">Начать рисование</button>
+                </div>
+            </div>
+            <div id="drawingCanvas" class="canvas"></div>
+        </div>
+    </section>
+    
+     <div class="container">
+        <h1>Форма с проверкой капчи</h1>
+        <form id="captchaForm">
+            <div class="form-group">
+                <label for="name">Ваше имя:</label>
+                <input type="text" id="name" placeholder="Введите ваше имя">
+            </div>
+            
+            <div class="form-group">
+                <label>Капча:</label>
+                <div id="captchaDisplay" class="captcha-display"></div>
+                <input type="text" id="captchaInput" placeholder="Введите капчу">
+                <div id="captchaError" class="error"></div>
+            </div>
+            
+            <button type="submit" id="submitBtn" disabled>Отправить форму</button>
+        </form>
+    </div>
+        <script src="test1.js"></script>
+    </main>
+</body>
+</html>
+

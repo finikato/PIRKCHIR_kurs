@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tori</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="/pract 1/css/image.css">
+    <link rel="stylesheet" href="/pract 1/css/media.css">
+    <link rel="stylesheet" href="/pract 1/css/menu.css">
+    <link rel="stylesheet" href="/pract 1/css/knopka.css">
+    <link rel="stylesheet" href="/pract 1/css/galery.css">
+</head>
+<body>
+  <section class="content-block">
+            <h1>Галерея</h1>
+        </section>
+ <div class="container">
+            <div class="gallery" id="xd3">
+                <figure class="gallery__item gallery__item--1">
+                    <img src="/pract 1/women/bob.jpg" alt="Gallery image 1" class="gallery__img">
+                     <div class="gallery__caption">Боб</div>
+                </figure>
+                <figure class="gallery__item gallery__item--2">
+                    <img src="/pract 1/women/Cascad.jpg" alt="Gallery image 2" class="gallery__img">
+                      <div class="gallery__caption">Каскад</div>
+                </figure>
+                <figure class="gallery__item gallery__item--3">
+                    <img src="/pract 1/men/fade.jpg" alt="Gallery image 3" class="gallery__img">
+                      <div class="gallery__caption">Фэйд</div>
+                </figure>
+                <figure class="gallery__item gallery__item--4">
+                    <img src="/pract 1/men/Box.jpg" alt="Gallery image 4" class="gallery__img">
+                      <div class="gallery__caption">Бокс</div>
+                </figure>
+                <figure class="gallery__item gallery__item--5">
+                    <img src="/pract 1/women/Hloper.jpg" alt="Gallery image 5" class="gallery__img">
+                      <div class="gallery__caption">Хлопер</div>
+                </figure>
+                <figure class="gallery__item gallery__item--6">
+                    <img src="/pract 1/women/Kare.jpg" alt="Gallery image 6" class="gallery__img">
+                      <div class="gallery__caption">Каре</div>
+                </figure>
+                <figure class="gallery__item gallery__item--7">
+                    <img src="/pract 1/men/Britanka.jpg" alt="Gallery image 7" class="gallery__img">
+                      <div class="gallery__caption">Британка</div>
+                </figure>
+                <figure class="gallery__item gallery__item--8">
+                    <img src="/pract 1/men/undercat.jpg" alt="Gallery image 8" class="gallery__img">
+                      <div class="gallery__caption">Андеркат</div>
+                </figure>
+                <figure class="gallery__item gallery__item--9">
+                    <img src="/pract 1/women/Pash.jpg" alt="Gallery image 9" class="gallery__img">
+                      <div class="gallery__caption">Паж</div>
+                </figure>
+                <figure class="gallery__item gallery__item--10">
+                    <img src="/pract 1/women/Pixie.jpg" alt="Gallery image 10" class="gallery__img">
+                      <div class="gallery__caption">Пикси</div>
+                </figure>
+                <figure class="gallery__item gallery__item--11">
+                    <img src="/pract 1/men/military.jpg" alt="Gallery image 11" class="gallery__img">
+                      <div class="gallery__caption">Милитари</div>
+                </figure>
+                <figure class="gallery__item gallery__item--12">
+                    <img src="/pract 1/men/Long bob.jpg" alt="Gallery image 12" class="gallery__img">
+                      <div class="gallery__caption">Длинный боб</div>
+                </figure>
+                <figure class="gallery__item gallery__item--13">
+                    <img src="/pract 1/women/Shegi.webp" alt="Gallery image 13" class="gallery__img">
+                      <div class="gallery__caption">Шеги</div>
+                </figure>
+                <figure class="gallery__item gallery__item--14">
+                    <img src="/pract 1/women/FrenchCare.jpg" alt="Gallery image 14" class="gallery__img">
+                      <div class="gallery__caption">Французое Каре</div>
+                </figure>
+                <figure class="gallery__item gallery__item--15">
+                    <img src="/pract 1/men/Cascad.jpg" alt="Gallery image 15" class="gallery__img">
+                      <div class="gallery__caption">Каскад</div>
+                </figure>
+                <figure class="gallery__item gallery__item--16">
+                    <img src="/pract 1/men/Top knot.jpg" alt="Gallery image 16" class="gallery__img">
+                      <div class="gallery__caption">Топ нот</div>
+                </figure>
+                <figure class="gallery__item gallery__item--17">
+                    <img src="/pract 1/women/WolfCut.jpg" alt="Gallery image 17" class="gallery__img">
+                      <div class="gallery__caption">Вулф кат</div>
+                </figure>
+                <figure class="gallery__item gallery__item--18">
+                    <img src="/pract 1/women/Ero case.jpg" alt="Gallery image 18" class="gallery__img">
+                      <div class="gallery__caption">Эрокез</div>
+                </figure>
+                <figure class="gallery__item gallery__item--19">
+                    <img src="/pract 1/men/krop.jpg" alt="Gallery image 19" class="gallery__img">
+                      <div class="gallery__caption">Кроп</div>
+                </figure>
+                <figure class="gallery__item gallery__item--20">
+                    <img src="/pract 1/men/shtori.jpg"alt="Gallery image 20" class="gallery__img">
+                      <div class="gallery__caption">Шторы</div>
+                </figure>
+            </div>
+</div>
+<div style="text-align: center;">
+        <div class="small-square-1"></div>
+        <button id="drawBtn" class="draw-btn">Активировать помощника</button>
+</div>
+<div style="text-align: center;">
+        <a href="main.html" class="gohome">На главную</a>
+</div>
+<script>
+const drawBtn = document.getElementById('drawBtn');
+let isDrawing = false;
+
+drawBtn.addEventListener('click', function() {
+    isDrawing = !isDrawing;
+
+    if (isDrawing) {
+        drawBtn.classList.add('active');
+        drawBtn.textContent = 'Отключить помощника';
+        document.body.style.cursor = 'url("cursor.cur") 0 20, crosshair';
+    } else {
+        drawBtn.classList.remove('active');
+        drawBtn.textContent = 'Активировать помощника';
+        document.body.style.cursor = 'default';
+    }
+});
+
+document.addEventListener('mousemove', function(e) {
+    if (!isDrawing) return;
+    
+    const dot = document.createElement('div');
+    dot.className = 'dot';
+    dot.style.left = (e.pageX - 5) + 'px';
+    dot.style.top = (e.pageY - 5) + 'px';
+
+    const colors = ['#ff6b6b', '#6b8cff', '#6bff8c', '#ffd86b', '#c66bff'];
+    dot.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+    document.body.appendChild(dot);
+
+    setTimeout(() => {
+        if (dot.parentNode) {
+            dot.parentNode.removeChild(dot);
+        }
+    }, 2000);
+});
+</script>
+</body>
+</html>

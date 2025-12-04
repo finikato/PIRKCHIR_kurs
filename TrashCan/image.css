@@ -1,0 +1,484 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+html {
+overflow-x: hidden;
+}
+body {
+    background: (#333);
+    color: #fff;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+h2 {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    margin-top: 3rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Секция кнопок */
+.buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.5rem;
+}
+
+.btn {
+    position: relative;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    min-width: 180px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Кнопка 1 - Эффект свечения */
+.btn-glow {
+    background: linear-gradient(45deg, #ff6b6b, #ffa36c);
+    z-index: 1;
+}
+
+.btn-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+    z-index: -1;
+}
+
+.btn-glow:hover::before {
+    left: 100%;
+}
+
+.btn-glow:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 107, 107, 0.4);
+}
+
+/* Кнопка 2 - Эффект заполнения */
+.btn-fill {
+    background: transparent;
+    border: 2px solid #4ecdc4;
+    color: #4ecdc4;
+    overflow: hidden;
+}
+
+.btn-fill::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: #4ecdc4;
+    transition: width 0.4s ease;
+    z-index: -1;
+}
+
+.btn-fill:hover::before {
+    width: 100%;
+}
+
+.btn-fill:hover {
+    color: #1a2a6c;
+}
+
+/* Кнопка 3 - Эффект окружности */
+.btn-circle {
+    background: #6a11cb;
+    color: white;
+}
+
+.btn-circle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+.btn-circle:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* Кнопка 4 - Сдвиг */
+.btn-sdvig {
+    background: linear-gradient(to bottom, #ff8a00, #da1b60);
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+
+.btn-sdvig::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #da1b60, #ff8a00);
+    border-radius: 8px;
+    transform: translateZ(-10px);
+    transition: transform 0.3s ease;
+}
+
+.btn-sdvig:hover {
+    transform: translateY(-5px) rotateX(10deg);
+}
+
+.btn-3d:hover::before {
+    transform: translateZ(-15px);
+}
+
+/* Секция уведомлений */
+.notification-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.notification {
+    position: relative;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 300px;
+    max-width: 90%;
+}
+
+.notification:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.notification-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+}
+
+.notification-title::after {
+    content: '▼';
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.notification:hover .notification-title::after {
+    transform: rotate(180deg);
+}
+
+.notification-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(30, 30, 46, 0.95);
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.3s ease;
+    z-index: 10;
+}
+
+.notification:hover .notification-list {
+    max-height: 300px;
+    opacity: 1;
+}
+
+.notification-item {
+    padding: 0.8rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.2s ease;
+}
+
+.notification-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+/* Секция карточек */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    min-height: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-img {
+    transform: scale(1.1);
+}
+
+.card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.card-btn {
+    align-self: flex-start;
+    padding: 0.6rem 1.2rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.card-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Карточка 1 */
+.card-1 .card-img {
+    background: linear-gradient(45deg, #ff6b6b, #ffa36c);
+}
+
+.card-1::before {
+    content: 'НОВИНКА';
+    position: absolute;
+    top: 15px;
+    right: -30px;
+    background: #ff6b6b;
+    color: white;
+    padding: 5px 30px;
+    transform: rotate(45deg);
+    font-size: 0.8rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
+/* Карточка 2 */
+.card-2 .card-img {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+}
+
+.card-2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(78, 205, 196, 0.2), rgba(68, 160, 141, 0.2));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.card-2:hover::before {
+    opacity: 1;
+}
+
+/* Карточка 3 */
+.card-3 .card-img {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+}
+
+.card-3 .card-content {
+    position: relative;
+    z-index: 1;
+}
+
+.card-3::before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: rgba(106, 17, 203, 0.8);
+    transition: height 0.4s ease;
+    z-index: 0;
+}
+
+.card-3:hover::before {
+    height: 100%;
+}
+
+/* Секция видео */
+.video-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.video-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.video-iframe-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+}
+
+.video-iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-info {
+    padding: 20px;
+}
+
+.video-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.video-description {
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .buttons-container {
+        gap: 1.5rem;
+    }
+    
+    .btn {
+        min-width: 150px;
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .cards-container, .video-container {
+        gap: 1.5rem;
+    }
+    
+    section {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 1rem 0.5rem;
+    }
+    
+    section {
+        padding: 1rem;
+    }
+    
+    .btn {
+        min-width: 130px;
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .card, .video-card {
+        max-width: 100%;
+    }
+}

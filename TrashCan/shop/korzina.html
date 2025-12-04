@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="java1.css">
+    <link rel="stylesheet" href="shop.css">
+    <title>-</title>
+    <script src="shop.js"></script>
+</head>
+<body>
+    <div class="cart-container">
+        <div class="cart-header">
+            <h1>Корзина покупок</h1>
+            <div class="total-value">Итого: <span id="total">0</span> ₽</div>
+        </div>
+        
+        <div class="controls">
+            <button class="add-btn" onclick="cart.addItem()">Добавить товар</button>
+            <button class="reset-btn" onclick="cart.reset()">Сбросить</button>
+            <button class="history-btn" onclick="cart.toggleHistory()">История</button>
+        </div>
+        
+        <div id="history" class="history" style="display: none;">
+            <h3>История добавлений:</h3>
+            <div class="history-list" id="historyList">
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>Как использовать:</h3>
+            <ul>
+                <li> Нажмите (Добавить товар) чтобы ввести стоимость товара</li>
+                <li> Стоимость будет автоматически добавляться к общей сумме</li>
+                <li> Можно вводить отрицательные значения для возвратов</li>
+                <li> Используйте (Сбросить) чтобы начать заново</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
