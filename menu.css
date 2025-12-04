@@ -1,0 +1,109 @@
+.header {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    position: relative; 
+    width: 100%;
+    height: 70px;
+    background: linear-gradient(80deg, #9d0808 0%, #20184a 100%);
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.logo-container {
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+}
+
+.menuverh
+{
+    display: flex;
+    align-items: center;
+    align-items: right ;
+    margin-right: auto;
+}
+.crisp {
+    width: 50px; /* ширина */
+    height: 50px; /* высота */
+    border-radius: 50%; /* круглая форма */
+    object-fit: cover; /* обрезка изображения по контейнеру */
+}
+
+.site-title {
+    color: white; /* белый цвет текста */
+    font-size: 1.2rem; /* размер шрифта */
+    font-weight: bold; /* жирное начертание */
+}
+
+
+.burger-checkbox {
+    display: none; /* скрытие элемента */
+}
+
+
+.burger {
+    display: none; /* Сначала скрываем */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 9999;
+    position: relative; 
+    margin-left: auto; 
+}
+
+.burger-checkbox:checked + .burger .burger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px,6px);
+}
+.burger-checkbox:checked + .burger .burger-line:nth-child(2) {
+    opacity: 0; 
+}
+.burger-checkbox:checked + .burger .burger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px,-6px);
+}
+.menu-list {
+    font-size: 2rem;
+    position: absolute; /* абсолютная позиция */
+    top: 70px; /* отступ сверху */
+    right: -100%; /* скрытие за правым краем */
+    width: 100%; /* ширина на весь экран */
+    max-width: 3000px; /* максимальная ширина */
+    height: 357vh; /* высота минус шапка */
+    /*background: rgba(236, 69, 17, 0.95);*/
+    background: linear-gradient(#2b1383, #940505, #290333);
+    display: flex; /* flex-контейнер */
+    flex-direction: column; /* вертикальное расположение */
+    padding: 20px 0; /* внутренние отступы */
+    transition: right 0.3s ease; /* плавное появление */
+    z-index: 999; /* высокий слой */
+}
+.burger-line {
+    
+    height: 3px; /* высота линии */
+    transform-origin: center;
+    background-color: white; /* белый цвет */
+    border-radius: 3px; /* скругление углов */
+    transition: all 0.3s ease; /* плавная анимация */
+}
+.burger-checkbox:checked ~ .menu-list {
+    right: 0;
+}
+.menuverh
+{
+    display: flex; /* Устанавливаем flex-контейнер для горизонтального расположения */
+    align-items: center; /* Выравниваем элементы по вертикали по центру */
+}
+.tabl-nav {
+    display: block; /* блочный элемент */
+    padding: 15px 20px; /* внутренние отступы */
+    color: white; /* белый цвет текста */
+    font-size: 1.1rem; /* размер шрифта */
+    text-decoration: none; /* убрать подчеркивание */
+    transition: background 0.3s ease; /* плавное изменение фона */
+}
+
+.tabl-nav:hover {
+    background: rgba(255,255,255,0.1); /* полупрозрачный фон */
+}

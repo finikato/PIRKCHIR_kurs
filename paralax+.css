@@ -1,0 +1,22 @@
+/* стили для прогресс-бара прокрутки */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg, #64027f, #f90372);
+    /*background: linear-gradient(90deg, #ff6b6b, #ffa500);*/
+    z-index: 1001;
+    transition: width 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Стили для анимации появления элементов */
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible {
+    opacity: 1;
+}
