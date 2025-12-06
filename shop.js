@@ -55,7 +55,7 @@ function renderCatalogProducts() {
     
    //проверяем, есть ли товары для отображения
     if (currentProducts.length === 0) {
-        catalogProducts.innerHTML = '<div class="empty-cart">Товары не найдены</div>';
+        catalogProducts.innerHTML = '<div class="empty-cart">Услуги не найдены</div>';
         return;
     }
     
@@ -165,7 +165,7 @@ function addToCart(productId) {
     }
     
     renderCart();//перерисовываем корзину
-    showNotification(`Товар "${product.name}" добавлен в корзину!`);//показываем уведомление
+    showNotification(`Услуга "${product.name}" добавлена в корзину!`);//показываем уведомление
 }
 
 //удаление товара из корзины
@@ -175,7 +175,7 @@ function removeFromCart(productId) {
         const productName = cart[productIndex].name;//сохраняем имя товара для уведомления
         cart.splice(productIndex, 1);//удаляем товар из массива
         renderCart();//перерисовываем корзину
-        showNotification(`Товар "${productName}" удален из корзины!`, true);//показываем уведомление об ошибке
+        showNotification(`Услуга "${productName}" удалена из корзины!`, true);//показываем уведомление об ошибке
     }
 }
 
@@ -215,7 +215,7 @@ function replaceRandomItem() {
     const availableProducts = products.filter(p => !cart.some(item => item.id === p.id));
     
     if (availableProducts.length === 0) {
-        showNotification('Все товары уже в корзине!', true);//если все товары в корзине
+        showNotification('Все услуги уже в корзине!', true);//если все товары в корзине
         return;
     }
     
@@ -229,7 +229,7 @@ function replaceRandomItem() {
     };
     
     renderCart();//перерисовываем корзину
-    showNotification(`Товар "${replacedItem.name}" заменен на "${newProduct.name}"!`);
+    showNotification(`Услуга "${replacedItem.name}" заменена на "${newProduct.name}"!`);
 }
 
 //очистка корзины
