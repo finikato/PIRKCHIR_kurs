@@ -26,8 +26,8 @@
 .crisp {
     width: 50px; /* ширина */
     height: 50px; /* высота */
-    border-radius: 50%; /* круглая форма */
-    object-fit: cover; /* обрезка изображения по контейнеру */
+    border-radius: 50%; 
+    object-fit: cover; 
 }
 
 .site-title {
@@ -73,7 +73,7 @@
     height: 357vh; /* высота минус шапка */
     /*background: rgba(236, 69, 17, 0.95);*/
     background: linear-gradient(#2b1383, #940505, #290333);
-    display: flex; /* flex-контейнер */
+    display: flex; 
     flex-direction: column; /* вертикальное расположение */
     padding: 20px 0; /* внутренние отступы */
     transition: right 0.3s ease; /* плавное появление */
@@ -92,8 +92,8 @@
 }
 .menuverh
 {
-    display: flex; /* Устанавливаем flex-контейнер для горизонтального расположения */
-    align-items: center; /* Выравниваем элементы по вертикали по центру */
+    display: flex; 
+    align-items: center; 
 }
 .tabl-nav {
     display: block; /* блочный элемент */
