@@ -6,8 +6,8 @@
     
     .burger {
         display: flex; /* Показываем только на мобильных */
-        position: relative; /* Относительное позиционирование */
-        right: auto; /* Убираем абсолютное позиционирование */
+        position: relative; 
+        right: auto; /* убираем абсолютное позиционирование */
         top: auto;
         transform: none;
     }
@@ -91,30 +91,30 @@
     }
     
     .book-header {
-        padding: 12px; /* уменьшенные отступы */
-        margin-bottom: 20px; /* уменьшенный отступ */
+        padding: 12px; 
+        margin-bottom: 20px; 
     }
     
     .content-block {
-        padding: 15px; /* уменьшенные отступы */
+        padding: 15px;
     }
     
     .links-section {
-        padding: 15px; /* уменьшенные отступы */
+        padding: 15px; 
     }
     
     .menu-list {
-        top: 60px; /* Корректировка под высоту header */
+        top: 60px; 
         height: calc(100vh - 60px);
     }
     .logo-container {
-        gap: 10px; /* Уменьшен отступ */
+        gap: 10px;
     }
     .floating-button {
-        bottom: 15px; /* минимальный отступ */
-        right: 15px; /* минимальный отступ */
-        width: 40px; /* минимальная ширина */
-        height: 40px; /* минимальная высота */
-        font-size: 1.2rem; /* минимальный размер шрифта */
+        bottom: 15px; 
+        right: 15px; 
+        width: 40px; 
+        height: 40px; 
+        font-size: 1.2rem; 
     }
 }
